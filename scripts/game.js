@@ -1,13 +1,25 @@
 const words = ["phone","table","cup","sun","moon","orange","apple","paint","developer","engineer","microphone","speakers","radio","television"];
 const randomIndex = Math.floor(Math.random()*(words.length - 1));
 const randomWord = words[randomIndex];
+const letterElements = document.querySelectorAll(".letter");
 let mistakesCounter = 0;
 
 document.getElementById("answer-section").innerHTML = "-".repeat(randomWord.length);
 
 console.log(randomWord);
 
-let inputLetter = prompt();
+document.addEventListener("keydown", function (event) {
+    if (event.key.match(/[a-z]/i)) {
+        checkLetter(event.key.toLowerCase());
+    }
+});
+
+letterElements.forEach(letterElement => {
+    letterElement.addEventListener("click", function() {
+        const clickedLetter = this.textContent;
+        checkLetter(clickedLetter.toLowerCase());
+    });
+});
 
 function getLetterPosition(letter,word) {
     const letterPosition = [];
@@ -55,4 +67,3 @@ function checkLetter(letter) {
     }
 }
 
-checkLetter(inputLetter);
