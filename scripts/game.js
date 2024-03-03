@@ -11,9 +11,21 @@ let inputLetter = prompt();
 function getLetterPosition(letter,word) {
     const letterPosition = [];
     for (let i = 0; i < word.length; i++) {
-        if (i = letter) {
+        if (i == letter) {
             letterPosition.push(i)
         }
     }
     return letterPosition
 }
+
+function checkLetter(letter) {
+    let text = document.getElementById("answer-section").innerHTML
+    if (randomWord.includes(letter)) {
+        const letterPositions = getLetterPosition(letter,randomWord);
+        for (let i = 0; i < letterPositions.length; i++){
+            document.getElementById("answer-section").innerHTML = text.replace(text[letterPositions[i]], letter);
+        }
+    }
+}
+
+checkLetter(inputLetter);
