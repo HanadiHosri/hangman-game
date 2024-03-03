@@ -1,5 +1,5 @@
 const words = ["phone","table","cup","sun","moon","orange","apple","paint","developer","engineer","microphone","speakers","radio","television"];
-let randomIndex = Math.floor(Math.random()*(words.length - 1));
+let randomIndex = Math.floor(Math.random()*(words.length));
 let randomWord = words[randomIndex];
 let letterElements = document.querySelectorAll(".letter");
 let mistakesCounter = 0;
