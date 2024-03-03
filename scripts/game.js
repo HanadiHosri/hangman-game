@@ -11,7 +11,7 @@ let inputLetter = prompt();
 function getLetterPosition(letter,word) {
     const letterPosition = [];
     for (let i = 0; i < word.length; i++) {
-        if (i == letter) {
+        if (word[i] == letter) {
             letterPosition.push(i)
         }
     }
