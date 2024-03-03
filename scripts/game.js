@@ -18,12 +18,17 @@ function getLetterPosition(letter,word) {
     return letterPosition
 }
 
+function replaceCharacter(string, index, replacement) {
+    return ( string.slice(0, index) + replacement + string.slice(index + 1))
+}
+
 function checkLetter(letter) {
     let text = document.getElementById("answer-section").innerHTML
     if (randomWord.includes(letter)) {
         const letterPositions = getLetterPosition(letter,randomWord);
         for (let i = 0; i < letterPositions.length; i++){
-            document.getElementById("answer-section").innerHTML = text.replace(text[letterPositions[i]], letter);
+            let position = letterPositions[i]
+
         }
     }
 }
