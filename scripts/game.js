@@ -19,17 +19,18 @@ function getLetterPosition(letter,word) {
 }
 
 function replaceCharacter(string, index, replacement) {
-    return ( string.slice(0, index) + replacement + string.slice(index + 1))
+    return ( string.slice(0, index) + replacement + string.slice(index + 1, string.length))
 }
 
 function checkLetter(letter) {
-    let text = document.getElementById("answer-section").innerHTML
+    let text = document.getElementById("answer-section").innerHTML;
     if (randomWord.includes(letter)) {
         const letterPositions = getLetterPosition(letter,randomWord);
         for (let i = 0; i < letterPositions.length; i++){
-            let position = letterPositions[i]
-
+            let position = letterPositions[i];
+            text = replaceCharacter(text, position, letter);
         }
+        document.getElementById("answer-section").innerHTML = text;
     }
 }
 
